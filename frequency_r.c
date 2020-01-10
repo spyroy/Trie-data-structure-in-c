@@ -30,12 +30,12 @@ struct node* new_node(char l)
 void insert (trie* t, char* str)
 {
 	node* n = t->head;
+	int current = *str-'a';
 	while(*str)
 	{
-		int current = *str-'a';
 		if(n->children[current] == NULL)
 		{	
-			n->children[current] = new_node((char)*str);
+			n->children[current] = new_node(*str);
 		}
 		n = n->children[current];
 		str++;
@@ -128,21 +128,22 @@ void print_recursive(node* n, char* str, int i)
 {
 	if(n == NULL)
 		return;
+	int j;
+	for(j=NUM_LETTERS-1; j>=0; j--)
+	{
+		if(n->children[j] != NULL)
+		{
+			str[i]=j+'a';
+        		print_recursive(n->children[j],str,i+1);
+		}
+	}
 	if(n->isLeaf==true)
    	{
         	str[i]='\0';
         	printf("%s \t %ld \n",str, n->count);
     	}
-	int j;
-    	for(j=0; j<NUM_LETTERS; j++)
-    	{
-        	if(n->children[j]!=NULL) 
-        	{    
-        		str[i]=j+'a';
-        		print_recursive(n->children[j],str,i+1);
-        	}
-    	}
 }
+
 void free_t(trie* t)
 {
    if(t!=NULL)

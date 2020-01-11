@@ -144,7 +144,7 @@ void print_recursive(node* n, char* str, int i)
 	if(n->isLeaf==true)
    	{
         	str[i]='\0';
-        	printf("%s \t %ld \n",str, n->count);
+        	printf("%s\t%ld\n",str, n->count);
     	}
 }
 

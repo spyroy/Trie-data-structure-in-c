@@ -10,13 +10,13 @@ LIBso=libfrequency.so
 LIBso2=libfrequency_r.so
 FLAGS= -Wall -g 
 
-all: frequencyd frequencys frequency_rd frequency_rs frequency frequency_maind  frequency r frequency_r_maind
+all: frequencyd frequencys frequency_rd frequency_rs frequency frequency_maind  frequency_r frequency_r_maind
 
 frequency: $(MAINOBJECTS1) $(LIBa)
 	$(CC) $(flags) -o frequency $(MAINOBJECTS1) $(LIBa) 
 frequency_maind: $(MAINOBJECTS1)
 	$(CC) $(flags) -o frequency_maind $(MAINOBJECTS1) ./$(LIBso)
-frequency r: $(MAINOBJECTS2) $(LIBa2)
+frequency_r: $(MAINOBJECTS2) $(LIBa2)
 	$(CC) $(flags) -o frequency r $(MAINOBJECTS2) $(LIBa2) 
 frequency_r_maind: $(MAINOBJECTS2)
 	$(CC) $(flags) -o frequency_r_maind $(MAINOBJECTS2) ./$(LIBso2)

@@ -30,12 +30,12 @@ struct node* new_node(char l)
 void insert (trie* t, char* str)
 {
 	node* n = t->head;
-	int current = *str-'a';
 	while(*str)
 	{
+		int current = *str-'a';
 		if(n->children[current] == NULL)
 		{	
-			n->children[current] = new_node(*str);
+			n->children[current] = new_node((char)*str);
 		}
 		n = n->children[current];
 		str++;
@@ -45,6 +45,7 @@ void insert (trie* t, char* str)
 	
 }
 
+//search for specific word (not used after all).
 boolean search (node* head, char* str)
 {
 	if(head == NULL)
@@ -65,6 +66,7 @@ boolean search (node* head, char* str)
 	return n->isLeaf;
 }
 
+//used for my_delete to determine if node has children
 boolean have_children (node* n)
 {
 	int i;
@@ -78,6 +80,8 @@ boolean have_children (node* n)
 	return false;
 }
 
+// used to delete a word from the tree using free()
+// eventually used free_n to free all nodes instead of all words.
 boolean my_delete (node **n, char* str)
 {
 	if(*n == NULL)
@@ -170,14 +174,14 @@ void free_n(node* n)
 }
 
 
-char* getWord(const char *str, int size)
-{
-	while ( ( str += strspn(str, " \t") ) != '\0' && size-- )
-    	{
-        	str += strcspn(str, " \t");
-    	}
-    	return *str ? (char *)str : (char *)0;
-}
+//char* getWord(const char *str, int size)
+//{
+//	while ( ( str += strspn(str, " \t") ) != '\0' && size-- )
+//    	{
+//        	str += strcspn(str, " \t");
+//   	}
+//    	return *str ? (char *)str : (char *)0;
+//}
 
 	
 	

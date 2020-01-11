@@ -17,7 +17,7 @@ frequency: $(MAINOBJECTS1) $(LIBa)
 frequency_maind: $(MAINOBJECTS1)
 	$(CC) $(flags) -o frequency_maind $(MAINOBJECTS1) ./$(LIBso)
 frequency_r: $(MAINOBJECTS2) $(LIBa2)
-	$(CC) $(flags) -o frequency r $(MAINOBJECTS2) $(LIBa2) 
+	$(CC) $(flags) -o frequency_r $(MAINOBJECTS2) $(LIBa2) 
 frequency_r_maind: $(MAINOBJECTS2)
 	$(CC) $(flags) -o frequency_r_maind $(MAINOBJECTS2) ./$(LIBso2)
 

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#define WORD 30
+#define WORD 60
 
 int main(int argc, char* argv[])
 {
@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	char str[WORD];
 	if (stdin)
 	{
-		while (fscanf(stdin, "%49s", str) == 1)
+		while (fscanf(stdin, "%59s", str) == 1)
 		{
 			int i;
 			for(i = 0; str[i]; i++)

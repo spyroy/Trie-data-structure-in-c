@@ -7,6 +7,8 @@
 
 int main(int argc, char* argv[])
 {
+		
+	
 	trie* t = init();
 	char str[WORD];
 	if (stdin)
@@ -24,7 +26,12 @@ int main(int argc, char* argv[])
 		}
 		fclose(stdin);
 	}
-	print(t,0);
+	if(argc == 2 && strcmp(argv[1]," r"))
+	{
+		printR(t,0);
+	}
+	else
+		print(t,0);
 	free_t(t); 
 	return 0;	
     

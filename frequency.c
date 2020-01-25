@@ -148,6 +148,32 @@ void print_recursive(node* n, char* str, int i)
     	}
 }
 
+void printR(trie* h, int size)
+{
+	char str [size];
+    	print_recursiveR(h->head,str,0);
+}
+
+void print_recursiveR(node* n, char* str, int i)
+{
+	if(n == NULL)
+		return;
+	int j;
+	for(j=NUM_LETTERS-1; j>=0; j--)
+	{
+		if(n->children[j] != NULL)
+		{
+			str[i]=j+'a';
+        		print_recursiveR(n->children[j],str,i+1);
+		}
+	}
+	if(n->isLeaf==true)
+   	{
+        	str[i]='\0';
+        	printf("%s\t%ld\n",str, n->count);
+    	}
+}
+
 void free_t(trie* t)
 {
    if(t!=NULL)

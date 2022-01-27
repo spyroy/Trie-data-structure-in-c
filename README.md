@@ -5,4 +5,4 @@
 ### eventually frequency_r and frequency_r_main not used because we placed the frequency_r function in frequency.
 ### for more information about trie: https://en.wikipedia.org/wiki/Trie
 ### for more information about Lexicographical order: https://en.wikipedia.org/wiki/Lexicography
-made in sw_systems course
+made in sw_systems course 
